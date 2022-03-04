@@ -1,0 +1,43 @@
+@font-face{
+  font-family:"PT-Sans";
+  src:url('fonts/Inter.ttf');
+}
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer components {
+  * {
+    @apply p-0 m-0 box-border;
+  }
+  body {
+    @apply overflow-x-hidden bg-white dark:bg-gray-900 dark:bg-opacity-95 font-PT-Sans;
+  }
+  input,textarea,select,option {
+    @apply dark:bg-gray-600 bg-gray-200 outline-none dark:text-gray-200 text-black;
+  }
+  textarea {
+    resize: none;
+  }
+  h1,
+  h2,
+  h3,
+  h4,
+  h5,
+  p,
+  label,
+  select,
+  option
+  span,
+  strong,
+  tr,
+  td {
+    @apply dark:text-white text-black;
+  }
+  ::placeholder {
+    @apply dark:text-gray-200 text-black;
+  }
+  .darkmode {
+    @apply border dark:border-gray-800 border-gray-100 bg-gray-50 dark:bg-gray-900 dark:bg-opacity-40;
+  }
+}
