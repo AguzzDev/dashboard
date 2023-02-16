@@ -14,7 +14,7 @@ export default function Layout({
   return (
     <>
       <Head>
-        <title>{title} | Dashboard</title>
+        <title>{title ? `${title} | Dashboard` : null}</title>
       </Head>
 
       <main className="flex">

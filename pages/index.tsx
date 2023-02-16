@@ -1,4 +1,4 @@
-import type { NextPage } from "next"
+import type { GetStaticProps, NextPage } from "next"
 
 import { ChartBar } from "components/Chart"
 import { TripleTable } from "components/Info/TripleTable"

@@ -1,8 +1,8 @@
 import { XAxis, YAxis, Tooltip, BarChart, Bar, CartesianGrid } from "recharts"
 
-import { useDarkMode } from "context/Darkmode/DarkmodeProvider"
 import { ChartProps, CustomTooltipProps } from "interfaces"
 import { Layout } from "./Layout"
+import { useTheme } from "context/Darkmode/ThemeProvider"
 
 export const ChartBar = ({
   type,
@@ -11,7 +11,7 @@ export const ChartBar = ({
   dataKeyX,
   dataKeyY,
 }: ChartProps) => {
-  const { dark } = useDarkMode()
+  const { theme } = useTheme()
   const CustomTooltip = ({ active, payload, label }: CustomTooltipProps) => {
     if (active && payload && payload.length) {
       return (
@@ -36,12 +36,18 @@ export const ChartBar = ({
     <Layout title={title}>
       <BarChart data={data}>
         <CartesianGrid vertical={false} />
-        <XAxis stroke={dark ? "black" : "white"} dataKey={dataKeyX} />
-        <YAxis stroke={dark ? "black" : "white"} dataKey={dataKeyY} />
+        <XAxis
+          stroke={theme === "light" ? "black" : "white"}
+          dataKey={dataKeyX}
+        />
+        <YAxis
+          stroke={theme === "light" ? "black" : "white"}
+          dataKey={dataKeyY}
+        />
         <Bar type="monotone" fill="#28c9c6" dataKey={dataKeyY} />
         <Tooltip
           content={<CustomTooltip />}
-          contentStyle={{ background: dark ? "F9FAFB" : "gray" }}
+          contentStyle={{ background: theme === "light" ? "F9FAFB" : "gray" }}
           cursor={{ fill: "transparent" }}
         />
       </BarChart>

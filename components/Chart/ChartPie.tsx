@@ -1,11 +1,11 @@
 import { Tooltip, Pie, PieChart } from "recharts"
 import { ChartProps } from "interfaces"
-import { useDarkMode } from "context/Darkmode/DarkmodeProvider"
 
 import { Layout } from "./Layout"
+import { useTheme } from "context/Darkmode/ThemeProvider"
 
 export const ChartPie = ({ title, data, dataKeyX, dataKeyY }: ChartProps) => {
-  const { dark } = useDarkMode()
+  const { theme } = useTheme()
   return (
     <Layout title={title}>
       <PieChart>
@@ -22,7 +22,7 @@ export const ChartPie = ({ title, data, dataKeyX, dataKeyY }: ChartProps) => {
         />
 
         <Tooltip
-          contentStyle={{ background: dark ? "F9FAFB" : "gray" }}
+          contentStyle={{ background: theme === "light" ? "F9FAFB" : "gray" }}
           cursor={{ fill: "transparent" }}
         />
       </PieChart>
